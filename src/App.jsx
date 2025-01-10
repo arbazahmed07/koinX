@@ -7,6 +7,102 @@ import TrendingCoins from './components/TrendingCoins';
 import Footer from './components/Footer';
 import { priceHistory, marketStats, trendingCoins } from './Data/sampleData';
 import Dashboard from './components/Dashboard';
+import TokenomicsSection from './components/TokenomicsSection';
+import Teams from './components/Teams';
+import CryptoSection from './components/CryptoSection';
+const InvestmentChartSVG = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" className="w-32 h-32">
+    <defs>
+      <linearGradient id="chartLine" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="#22c55e" stopOpacity="0.4"/>
+        <stop offset="100%" stopColor="#22c55e" stopOpacity="0"/>
+      </linearGradient>
+    </defs>
+    
+    <rect x="50" y="50" width="300" height="300" rx="20" fill="#1a1a1a"/>
+    <rect x="60" y="60" width="280" height="280" rx="15" fill="#000"/>
+    
+    <text x="80" y="100" fill="#fff" fontSize="16" fontFamily="Arial">Investing</text>
+    <text x="80" y="130" fill="#fff" fontSize="24" fontFamily="Arial, sans-serif" fontWeight="bold">$38,150.69</text>
+    
+    <path d="M80 220 Q130 180, 180 200 T280 160" stroke="#22c55e" fill="none" strokeWidth="2"/>
+    <path d="M80 220 Q130 180, 180 200 T280 160 V250 H80 Z" fill="url(#chartLine)"/>
+    
+    <text x="80" y="270" fill="#666" fontSize="12">1H</text>
+    <text x="140" y="270" fill="#666" fontSize="12">1D</text>
+    <text x="200" y="270" fill="#666" fontSize="12">1W</text>
+    <text x="260" y="270" fill="#666" fontSize="12">1M</text>
+  </svg>
+);
+
+const TaxCalculatorSVG = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" className="w-32 h-32">
+    <rect x="50" y="50" width="300" height="300" rx="10" fill="#1a1a1a"/>
+    <rect x="60" y="60" width="80" height="280" fill="#000"/>
+    <rect x="150" y="60" width="190" height="280" fill="#111"/>
+    
+    <circle cx="85" cy="90" r="8" fill="#4f46e5"/>
+    <rect x="70" y="120" width="60" height="8" rx="4" fill="#333"/>
+    <rect x="70" y="140" width="60" height="8" rx="4" fill="#333"/>
+    <rect x="70" y="160" width="60" height="8" rx="4" fill="#333"/>
+    
+    <rect x="170" y="80" width="150" height="20" rx="4" fill="#222"/>
+    <rect x="170" y="110" width="150" height="20" rx="4" fill="#222"/>
+    <rect x="170" y="140" width="150" height="20" rx="4" fill="#222"/>
+    
+    <rect x="170" y="180" width="150" height="140" rx="4" fill="#000"/>
+    <line x1="170" y1="210" x2="320" y2="210" stroke="#333" strokeWidth="1"/>
+    <line x1="170" y1="240" x2="320" y2="240" stroke="#333" strokeWidth="1"/>
+    <line x1="170" y1="270" x2="320" y2="270" stroke="#333" strokeWidth="1"/>
+    <line x1="220" y1="180" x2="220" y2="320" stroke="#333" strokeWidth="1"/>
+    <line x1="270" y1="180" x2="270" y2="320" stroke="#333" strokeWidth="1"/>
+  </svg>
+);
+
+const CalculatorCard = ({ title, children, buttonText, gradient }) => (
+  <div className={`rounded-lg p-6 text-white ${gradient}`}>
+    <div className="flex items-center gap-6">
+      <div className="bg-black/20 rounded-lg p-2">
+        {children}
+      </div>
+      <div className="space-y-4">
+        <h3 className="text-2xl font-bold">{title}</h3>
+        <button className="bg-white text-black px-6 py-3 rounded-lg font-semibold flex items-center gap-2 hover:bg-gray-100 transition-colors">
+          {buttonText}
+          <span className="text-xl">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+);
+
+const BitcoinCalculators = () => {
+  return (
+    <div className="space-y-6">
+      <h2 className="text-2xl font-bold text-gray-900">Already Holding Bitcoin?</h2>
+      
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <CalculatorCard 
+          title="Calculate your Profits"
+          buttonText="Check Now"
+          gradient="bg-gradient-to-r from-emerald-400 to-blue-500"
+        >
+          <InvestmentChartSVG />
+        </CalculatorCard>
+        
+        <CalculatorCard 
+          title="Calculate your tax liability"
+          buttonText="Check Now"
+          gradient="bg-gradient-to-r from-orange-400 to-red-500"
+        >
+          <TaxCalculatorSVG />
+        </CalculatorCard>
+
+      </div>
+      <p>Bitcoin is a decentralized digital currency that was introduced in 2009 by an anonymous entity known as Satoshi Nakamoto. It operates without a central authority, using blockchain technology to ensure secure transactions. Bitcoin transactions are verified by network nodes through cryptography and recorded in a public ledger. It can be exchanged for other currencies or goods and services, and its value is often volatile. Bitcoin has gained popularity due to its potential as a store of value, its scarcity (only 21 million coins will ever be mined), and its ability to bypass traditional banking systems, offering a decentralized financial system.</p>
+    </div>
+  );
+};
 const GetStartedCard = () => (
   <div className="bg-blue-600 text-white p-8 rounded-lg">
     <h2 className="text-2xl font-bold mb-4">
@@ -74,39 +170,36 @@ const App = () => {
             <TrendingCoins coins={trendingCoins} />
           </div>
         </div>
-
         <div className="mt-8">
-          <h2 className="text-xl font-bold mb-4">About Bitcoin</h2>
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <h3 className="text-lg font-bold mb-4">What is Bitcoin?</h3>
-            <p className="text-gray-700 mb-4">
-              Bitcoin is the first decentralized cryptocurrency. Launched in 2009 by an unknown person or group known as Satoshi Nakamoto, Bitcoin is a digital currency that enables instant payments to anyone, anywhere in the world without the need for traditional intermediaries like banks.
-            </p>
-            <div className="border-t pt-4">
-              <h3 className="text-lg font-bold mb-4">Key Features</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex items-start gap-3">
-                  <div className="mt-1"><Activity className="text-blue-600" /></div>
-                  <div>
-                    <h4 className="font-semibold">Decentralized Network</h4>
-                    <p className="text-gray-700">
-                      Bitcoin operates on a decentralized network, meaning it is not controlled by any central authority, such as a government or bank.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="mt-1"><DollarSign className="text-blue-600" /></div>
-                  <div>
-                    <h4 className="font-semibold">Digital Currency</h4>
-                    <p className="text-gray-700">
-                      Bitcoin is a digital form of money. Transactions are verified by network nodes through cryptography and recorded in a public distributed ledger called a blockchain.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <h2 className="text-xl font-bold mb-4">About Bitcoin</h2>
+  <div className="bg-white rounded-lg p-6 shadow-sm">
+    {/* What is Bitcoin? */}
+    <h3 className="text-lg font-bold mb-4">What is Bitcoin?</h3>
+    <p className="text-gray-700 mb-4">
+      Bitcoin’s price today is US$16,951.82, with a 24-hour trading volume of $19.14 B. BTC is +0.36% in the last 24 hours. It is currently -7.70% from its 7-day all-time high of $18,366.66, and 3.40% from its 7-day all-time low of $16,394.75. BTC has a circulating supply of 19.24 M BTC and a max supply of 21 M BTC.
+    </p>
+
+    {/* Divider */}
+    <div className="border-t my-4"></div>
+
+    {/* Additional Information Section */}
+    <h3 className="text-lg font-bold mb-4">Key Developments</h3>
+    <p className="text-gray-700 mb-4">
+      Over the last decade, Bitcoin has revolutionized the concept of digital money. It has enabled a decentralized financial system free from government or central bank control. Adoption rates have surged, with institutions like Tesla and MicroStrategy holding significant amounts in Bitcoin.
+    </p>
+    <p className="text-gray-700 mb-4">
+      The blockchain technology behind Bitcoin has paved the way for innovations such as smart contracts and decentralized finance (DeFi). With more than 40% of all cryptocurrencies' market capitalization, Bitcoin remains the leader in the space.
+    </p>
+    <p className="text-gray-700">
+      While challenges such as scalability and environmental concerns persist, developers and researchers continue to work on solutions. Technologies like the Lightning Network are helping to reduce transaction times and costs, making Bitcoin more accessible to everyday users.
+    </p>
+  </div>
+  
+</div>
+<BitcoinCalculators/>
+<TokenomicsSection/>
+<Teams/>
+<CryptoSection/>
       </main>
 
       <Footer />
