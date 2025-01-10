@@ -1,14 +1,14 @@
 import React from 'react';
 
 const TeamMember = ({ name, designation, description, image }) => (
-  <div className="bg-blue-50 rounded-lg p-6">
+  <div className="bg-blue-50 rounded-lg p-6 transition-transform duration-300 hover:scale-105 animate-fadeIn">
     <div className="flex flex-col md:flex-row gap-8">
       {/* Left Column - Image and Details */}
       <div className="flex flex-col items-center md:items-start min-w-[200px]">
         <img 
           src={image} 
           alt={name}
-          className="w-32 h-32 rounded-lg object-cover shadow-sm"
+          className="w-32 h-32 rounded-lg object-cover shadow-sm hover:shadow-lg transition-shadow duration-300"
         />
         <h3 className="text-xl font-bold mt-4">{name}</h3>
         <p className="text-gray-500 text-sm">{designation}</p>
@@ -45,7 +45,7 @@ const Teams = () => {
   ];
 
   return (
-    <div className="bg-white rounded-lg shadow-sm max-w-6xl mx-auto mt-5">
+    <div className="bg-white rounded-lg shadow-sm max-w-6xl mx-auto mt-5 p-6 animate-fadeIn">
       <h2 className="text-2xl font-bold mb-6">Team</h2>
       
       <div className="space-y-6">

@@ -40,17 +40,17 @@ const Dashboard = () => {
         icon: <Newspaper className="w-6 h-6 text-white" />,
         bgColor: "bg-blue-500",
         title:
-          "Lorem ipsum dolor sit amet consectetur. Dui vel quis dignissim mattis enim tincidunt.",
+          "Bitcoin adoption surges as institutional investors enter the market.",
         description:
-          "Lorem ipsum dolor sit amet consectetur. Ac phasellus risus est faucibus metus quis. Amet sapien quam viverra adipiscing condimentum.",
+          "The adoption of Bitcoin has increased significantly with large institutions showing interest, indicating a maturing crypto market.",
       },
       {
         icon: <TrendingUp className="w-6 h-6 text-white" />,
         bgColor: "bg-green-500",
         title:
-          "Lorem ipsum dolor sit amet consectetur. Dui vel quis dignissim mattis enim tincidunt.",
+          "Ethereum upgrades drive blockchain efficiency and scalability.",
         description:
-          "Lorem ipsum dolor sit amet consectetur. Ac phasellus risus est faucibus metus quis. Amet sapien quam viverra adipiscing condimentum.",
+          "Recent Ethereum network updates have enhanced transaction speeds and reduced costs, improving user and developer experience.",
       },
     ],
     analystEstimates: {
