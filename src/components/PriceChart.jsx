@@ -2,7 +2,6 @@ import React from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 const BitcoinTracker = () => {
-  // More granular data points to create detailed curves
   const data = [
     { date: "16 Dec", price: 42100 },
     { date: "16 Dec 4h", price: 41800 },
@@ -52,7 +51,6 @@ const BitcoinTracker = () => {
 
   return (
     <div className="bg-white p-4 sm:p-6 rounded-lg max-w-4xl mx-auto shadow-lg">
-      {/* Header Section */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
         <div className="flex items-center gap-2">
           <div className="bg-orange-400 w-10 h-10 rounded-full flex items-center justify-center">
@@ -65,8 +63,6 @@ const BitcoinTracker = () => {
         </div>
         <span className="bg-gray-200 px-2 py-1 rounded text-xs sm:text-sm">Rank #1</span>
       </div>
-
-      {/* Price Section */}
       <div className="mb-6">
         <div className="text-3xl sm:text-4xl font-bold">$46,953.04</div>
         <div className="text-gray-600 text-sm sm:text-base">₹ 39,42,343</div>
@@ -77,8 +73,6 @@ const BitcoinTracker = () => {
           <span className="text-gray-500 text-xs sm:text-sm">(24H)</span>
         </div>
       </div>
-
-      {/* Chart Section */}
       <div>
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
           <h2 className="text-lg sm:text-xl font-semibold">Bitcoin Price Chart (USD)</h2>
@@ -97,7 +91,6 @@ const BitcoinTracker = () => {
             ))}
           </div>
         </div>
-
         <div className="h-72 sm:h-80">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={data}>
@@ -106,7 +99,7 @@ const BitcoinTracker = () => {
                 axisLine={false}
                 tickLine={false}
                 dy={10}
-                interval={6} // Show fewer x-axis labels
+                interval={6}
                 minTickGap={30}
                 tick={{ fontSize: 12 }}
               />
