@@ -1,12 +1,12 @@
 import React from 'react';
 
-const TeamMember = ({ name, designation, description }) => (
+const TeamMember = ({ name, designation, description, image }) => (
   <div className="bg-blue-50 rounded-lg p-6">
     <div className="flex flex-col md:flex-row gap-8">
       {/* Left Column - Image and Details */}
       <div className="flex flex-col items-center md:items-start min-w-[200px]">
         <img 
-          src="./src/assets/john.jpeg" 
+          src={image} 
           alt={name}
           className="w-32 h-32 rounded-lg object-cover shadow-sm"
         />
@@ -27,17 +27,20 @@ const Teams = () => {
     {
       name: "John Smith",
       designation: "Chief Executive Officer",
-      description: "John brings over 15 years of experience in blockchain technology and financial markets. Previously, he led technology initiatives at major financial institutions and co-founded two successful fintech startups. His expertise in cryptographic systems and distributed ledger technology has been instrumental in shaping our platform's architecture and vision."
+      description: "John brings over 15 years of experience in blockchain technology and financial markets. Previously, he led technology initiatives at major financial institutions and co-founded two successful fintech startups. His expertise in cryptographic systems and distributed ledger technology has been instrumental in shaping our platform's architecture and vision.",
+      image: "./src/assets/john.jpeg" 
     },
     {
       name: "Elina Williams",
       designation: "Chief Technology Officer",
-      description: "Elina is a seasoned software architect with a strong background in cryptography and distributed systems. She previously worked at leading tech companies where she developed scalable blockchain solutions. Her innovative approach to technical challenges and leadership in implementing complex systems has been crucial to our platform's development."
+      description: "Elina is a seasoned software architect with a strong background in cryptography and distributed systems. She previously worked at leading tech companies where she developed scalable blockchain solutions. Her innovative approach to technical challenges and leadership in implementing complex systems has been crucial to our platform's development.",
+      image: "./src/assets/elina.jpeg"
     },
     {
       name: "Michael Chen",
       designation: "Head of Product Development",
-      description: "Michael has extensive experience in product management and blockchain technology. With a background in both traditional finance and cryptocurrency markets, he excels at bridging the gap between technical capabilities and user needs. His focus on user experience and market dynamics drives our product strategy."
+      description: "Michael has extensive experience in product management and blockchain technology. With a background in both traditional finance and cryptocurrency markets, he excels at bridging the gap between technical capabilities and user needs. His focus on user experience and market dynamics drives our product strategy.",
+      image: "./src/assets/chin.jpeg" 
     }
   ];
 
@@ -57,6 +60,7 @@ const Teams = () => {
               name={member.name}
               designation={member.designation}
               description={member.description}
+              image={member.image}
             />
           ))}
         </div>

@@ -239,31 +239,40 @@ const Dashboard = () => {
         </div>
 
         {/* Sentiment Section */}
-        <div className="bg-white rounded-lg shadow p-4 md:p-6">
-          <h2 className="text-lg md:text-xl font-semibold text-gray-900 mb-4">
-            Analyst Sentiments
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="text-center">
-              <p className="text-gray-500 text-sm">Buy</p>
-              <p className="text-green-500 font-medium text-xl">
-                {sentimentData.analystEstimates.buy}%
-              </p>
+       {/* Analyst Estimates */}
+        <div>
+          <div className="flex items-center gap-2 mb-4">
+            <h3 className="text-xl text-gray-700 font-semibold">Analyst Estimates</h3>
+            <Info className="w-5 h-5 text-gray-400" />
+          </div>
+          
+          <div className="flex items-center gap-8">
+            <div className="w-32 h-32 rounded-full bg-green-50 flex items-center justify-center">
+              <span className="text-4xl text-green-500 font-bold">76<span className="text-2xl">%</span></span>
             </div>
-            <div className="text-center">
-              <p className="text-gray-500 text-sm">Hold</p>
-              <p className="text-yellow-500 font-medium text-xl">
-                {sentimentData.analystEstimates.hold}%
-              </p>
-            </div>
-            <div className="text-center">
-              <p className="text-gray-500 text-sm">Sell</p>
-              <p className="text-red-500 font-medium text-xl">
-                {sentimentData.analystEstimates.sell}%
-              </p>
+            
+            <div className="flex-1 space-y-4">
+              <div className="flex items-center gap-4">
+                <span className="w-12 text-gray-500">Buy</span>
+                <div className="flex-1 h-2 bg-green-500 rounded-full" style={{width: '76%'}}></div>
+                <span className="w-12 text-right text-gray-700">76%</span>
+              </div>
+              
+              <div className="flex items-center gap-4">
+                <span className="w-12 text-gray-500">Hold</span>
+                <div className="flex-1 h-2 bg-gray-200 rounded-full" style={{width: '8%'}}></div>
+                <span className="w-12 text-right text-gray-700">8%</span>
+              </div>
+              
+              <div className="flex items-center gap-4">
+                <span className="w-12 text-gray-500">Sell</span>
+                <div className="flex-1 h-2 bg-red-500 rounded-full" style={{width: '16%'}}></div>
+                <span className="w-12 text-right text-gray-700">16%</span>
+              </div>
             </div>
           </div>
         </div>
+
       </main>
     </div>
   );
